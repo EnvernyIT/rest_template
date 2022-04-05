@@ -1,0 +1,27 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+	<!-- Create table -->
+	<changeSet id="1633466722505" author="blu-dots"
+		failOnError="true" onValidationFail="HALT">
+		<!-- If table doesn't not exist -->
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="EMPLOYEE_" />
+			</not>
+		</preConditions>
+
+		<!-- create table -->
+		<createTable tableName="EMPLOYEE_">
+			<column name="ID_" type="BIGINT"></column>
+			<column name="FIRST_NAME_" type="VARCHAR(100)"></column>
+			<column name="LAST_NAME_" type="VARCHAR(100)"></column>
+			<column name="EMAIL_" type="VARCHAR(100)"></column>
+			<column name="NUMBER_" type="VARCHAR(100)"></column>
+		</createTable>
+	</changeSet>
+
+
+</databaseChangeLog>
